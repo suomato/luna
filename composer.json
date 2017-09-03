@@ -1,0 +1,27 @@
+{
+  "name": "suomato/luna",
+  "description": "Command-line interface for Base Camp theme",
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "library",
+  "minimum-stability": "stable",
+  "authors": [
+    {
+      "name": "Toni Suomalainen",
+      "email": "toni.suomalainen@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.0",
+    "symfony/console": "^3.3",
+    "league/flysystem": "^1.0"
+  },
+  "autoload": {
+    "files": [
+      "src/helpers.php"
+    ],
+    "psr-4": {
+      "Suomato\\": "src/"
+    }
+  }
+}
