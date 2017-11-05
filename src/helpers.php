@@ -14,3 +14,8 @@ function build_custom_post_type($template, $name, $plural)
 
     return $content;
 }
+
+function build_shortcode($template, $name)
+{
+    return str_replace('{PLACEHOLDER}', $name, $template);
+}
