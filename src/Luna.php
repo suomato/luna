@@ -8,7 +8,7 @@ use Suomato\Commands\MakeShortcode;
 
 class Luna
 {
-    public static $version = '1.1.0';
+    public static $version = '1.1.1';
 
     public static function commands()
     {

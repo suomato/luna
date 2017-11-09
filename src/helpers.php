@@ -5,7 +5,7 @@ namespace Suomato;
 function build_custom_post_type($template, $name, $plural)
 {
     $singular = $name;
-    $plural   = $plural ?? "{$name}s";
+    $plural   = isset($plural) ? $plural : "{$name}s";
 
     $content = str_replace('movies', $plural, $template);
     $content = str_replace('Movies', ucfirst($plural), $content);
