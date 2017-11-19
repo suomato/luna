@@ -12,9 +12,9 @@ class Router
             register_rest_route($route['namespace'] . '/', $route['base'], [
                 'methods'             => $route['methods'],
                 'callback'            => $route['callback'],
-                'permission_callback' => $route['permission_callback'] ?? null,
-                'args'                => $route['params'] ?? [],
+                'permission_callback' => isset($route['permission_callback']) ? $route['permission_callback'] : null,
+                'args'                => isset($route['params']) ? $route['params'] : [],
             ]);
         });
-    }
+    }§
 }
