@@ -22,7 +22,7 @@ abstract class Shortcode
      *
      * @return mixed
      */
-    protected abstract function template($attr, $content);
+    abstract protected function template($attr, $content);
 
     /**
      * Shortcode constructor.
@@ -31,7 +31,7 @@ abstract class Shortcode
     {
         if ($this->shortcode !== '') {
             add_shortcode($this->shortcode, function ($attr, $content = null) {
-                if ( ! empty($this->attributes)) {
+                if (!empty($this->attributes)) {
                     $attr = shortcode_atts($this->attributes, $attr, $this->shortcode);
                 }
 
@@ -40,4 +40,3 @@ abstract class Shortcode
         }
     }
 }
-

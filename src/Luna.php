@@ -5,6 +5,7 @@ namespace Suomato;
 use Suomato\Commands\MakeCustomPostType;
 use Suomato\Commands\MakeRoute;
 use Suomato\Commands\MakeShortcode;
+use Suomato\Commands\MakeMenuPage;
 
 class Luna
 {
@@ -16,6 +17,7 @@ class Luna
             new MakeCustomPostType(),
             new MakeRoute(),
             new MakeShortcode(),
+            new MakeMenuPage(),
         ];
     }
 }

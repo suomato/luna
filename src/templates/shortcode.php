@@ -28,7 +28,6 @@ class {PLACEHOLDER} extends Shortcode
     {
         return '';
     }
-
 }
 
 // Initialize the shortcode

@@ -19,3 +19,8 @@ function build_shortcode($template, $name)
 {
     return str_replace('{PLACEHOLDER}', $name, $template);
 }
+
+function build_menu_page($template, $name)
+{
+    return str_replace('{PLACEHOLDER}', $name, $template);
+}
