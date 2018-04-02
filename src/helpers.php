@@ -15,12 +15,7 @@ function build_custom_post_type($template, $name, $plural)
     return $content;
 }
 
-function build_shortcode($template, $name)
-{
-    return str_replace('{PLACEHOLDER}', $name, $template);
-}
-
-function build_menu_page($template, $name)
+function build_content($template, $name)
 {
     return str_replace('{PLACEHOLDER}', $name, $template);
 }

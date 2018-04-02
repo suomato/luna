@@ -9,7 +9,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use function Suomato\build_menu_page;
+use function Suomato\build_content;
 
 class MakeMenuPage extends Command
 {
@@ -48,7 +48,7 @@ class MakeMenuPage extends Command
             return 0;
         }
 
-        $content = build_menu_page($template, $name);
+        $content = build_content($template, $name);
         $menu_pages->write("{$name}.php", $content);
 
         $output->writeln('<info>' . $info_text . ' created successfully.</info>');

@@ -8,7 +8,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use function Suomato\build_shortcode;
+use function Suomato\build_content;
 
 class MakeShortcode extends Command
 {
@@ -36,9 +36,9 @@ class MakeShortcode extends Command
             return 0;
         }
 
-        $content = build_shortcode($template, $name);
+        $content = build_content($template, $name);
         $shortcodes->write("{$name}.php", $content);
 
-        $output->writeln("<info>Shortcode created successfully.</info>");
+        $output->writeln('<info>Shortcode created successfully.</info>');
     }
 }
