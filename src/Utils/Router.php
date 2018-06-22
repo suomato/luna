@@ -16,5 +16,5 @@ class Router
                 'args'                => isset($route['params']) ? $route['params'] : [],
             ]);
         });
-    }§
+    }
 }
