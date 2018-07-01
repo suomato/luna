@@ -42,7 +42,7 @@ class {PLACEHOLDER} extends MenuPage
     protected $option_group = '';
 
     /**
-     * @var string An array of options with args.
+     * @var array An array of options with args.
      * See $args here https://developer.wordpress.org/reference/functions/register_setting/
      */
     protected $options = [
@@ -50,7 +50,10 @@ class {PLACEHOLDER} extends MenuPage
     ];
 
     /**
-     * Print template of Menu Page
+     * Print template of Menu Page.
+     * It is also possible to use Timber.
+     *
+     * \Timber::render();
      *
      * @return void
      */

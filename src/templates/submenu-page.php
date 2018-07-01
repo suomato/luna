@@ -37,7 +37,7 @@ class {PLACEHOLDER} extends SubmenuPage
     protected $option_group = '';
 
     /**
-     * @var string An array of options with args.
+     * @var array An array of options with args.
      * See $args here https://developer.wordpress.org/reference/functions/register_setting/
      */
     protected $options = [
@@ -46,6 +46,9 @@ class {PLACEHOLDER} extends SubmenuPage
 
     /**
      * Print template of Submenu Page
+     * It is also possible to use Timber.
+     *
+     * \Timber::render();
      *
      * @return void
      */
