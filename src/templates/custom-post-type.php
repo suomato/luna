@@ -2,7 +2,7 @@
 
 function custom_post_type_movie()
 {
-// Set UI labels for Custom Post Type
+    // Set UI labels for Custom Post Type
     $labels = [
         'name'               => _x('Movies', 'Post Type General Name', 'base-camp'),
         'singular_name'      => _x('Movie', 'Post Type Singular Name', 'base-camp'),
@@ -19,7 +19,7 @@ function custom_post_type_movie()
         'not_found_in_trash' => __('Not found in Trash', 'base-camp'),
     ];
 
-// Set other options for Custom Post Type
+    // Set other options for Custom Post Type
     $args = [
         'label'               => __('movies', 'base-camp'),
         'description'         => __('Movie', 'base-camp'),
@@ -48,6 +48,7 @@ function custom_post_type_movie()
         'show_in_nav_menus'   => true,
         'show_in_admin_bar'   => true,
         'menu_position'       => 5,
+        'menu_icon'           => '', // https://developer.wordpress.org/resource/dashicons
         'can_export'          => true,
         'has_archive'         => true,
         'exclude_from_search' => false,
@@ -57,7 +58,6 @@ function custom_post_type_movie()
 
     // Registering your Custom Post Type
     register_post_type('movies', $args);
-
 }
 
 add_action('init', 'custom_post_type_movie', 0);
