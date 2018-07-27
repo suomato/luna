@@ -4,6 +4,7 @@
 ## Commands
 
 * [Make Custom Post Type](#make-custom-post-type)
+* [Make Custom Taxonomy](#make-custom-taxonomy)
 * [Make Route](#make-route)
 * [Make Shortcode](#make-shortcode)
 * [Make Menu Page](#make-menu-page)
@@ -24,6 +25,23 @@ php luna make:custom-post-type person --plural=people
 ```
 
 > The new file is created to `/app/config/wp/custom-post-types/{name}.php`
+
+#### Make Custom Taxonomy
+
+> This Command helps you to create a new Custom Taxonomy very fast.
+
+```
+php luna make:custom-taxonomy {name}
+```
+
+> The argument is singular form. if noun have irregular plural which do not behave in standard way(singular+s),
+exception can be defined by plural option e.g.
+
+```
+php luna make:custom-taxonomy country --plural=countries
+```
+
+> The new file is created to `/app/config/wp/custom-taxonomies/{name}.php`
 
 #### Make Route
 

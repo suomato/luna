@@ -48,7 +48,7 @@ function custom_post_type_movie()
         'show_in_nav_menus'   => true,
         'show_in_admin_bar'   => true,
         'menu_position'       => 5,
-        'menu_icon'           => '', // https://developer.wordpress.org/resource/dashicons
+        'menu_icon'           => null, // https://developer.wordpress.org/resource/dashicons
         'can_export'          => true,
         'has_archive'         => true,
         'exclude_from_search' => false,
@@ -57,7 +57,7 @@ function custom_post_type_movie()
     ];
 
     // Registering your Custom Post Type
-    register_post_type('movies', $args);
+    register_post_type('movie', $args);
 }
 
 add_action('init', 'custom_post_type_movie', 0);
