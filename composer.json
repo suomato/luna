@@ -11,9 +11,8 @@
     }
   ],
   "require": {
-    "php": "^7.0",
-    "symfony/console": "^4.1",
-    "league/flysystem": "^1.0"
+    "symfony/console": "^5.4.9",
+    "league/flysystem": "^2.4.5"
   },
   "autoload": {
     "files": [
