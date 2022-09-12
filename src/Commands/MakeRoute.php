@@ -2,7 +2,7 @@
 
 namespace Suomato\Commands;
 
-use League\Flysystem\Adapter\Local;
+use League\Flysystem\Local\LocalFilesystemAdapter;
 use League\Flysystem\Filesystem;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -22,14 +22,14 @@ class MakeRoute extends Command
     {
         $name                 = strtolower($input->getArgument('name'));
         $filename             = "{$name}.php";
-        $routes_location      = new Local(__DIR__ . '/../../../../../app/config/wp/routes');
-        $boilerplate_location = new Local(__DIR__ . '/../templates');
+        $routes_location      = new LocalFilesystemAdapter(__DIR__ . '/../../../../../app/config/wp/routes');
+        $boilerplate_location = new LocalFilesystemAdapter(__DIR__ . '/../templates');
         $routes               = new Filesystem($routes_location);
         $boilerplate          = new Filesystem($boilerplate_location);
         $template             = $boilerplate->read('route.php');
 
         // If file already exists
-        if ($routes->has($filename)) {
+        if ($routes->fileExists($filename)) {
             $output->writeln("<error>{$filename} already exists!</error>");
 
             return 0;
@@ -38,5 +38,7 @@ class MakeRoute extends Command
         $routes->write("{$name}.php", $template);
 
         $output->writeln("<info>Route created successfully.</info>");
+
+        return 0;
     }
 }

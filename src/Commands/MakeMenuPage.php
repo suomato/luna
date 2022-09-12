@@ -2,7 +2,7 @@
 
 namespace Suomato\Commands;
 
-use League\Flysystem\Adapter\Local;
+use League\Flysystem\Local\LocalFilesystemAdapter;
 use League\Flysystem\Filesystem;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -35,14 +35,14 @@ class MakeMenuPage extends Command
 
         $name                 = $input->getArgument('name');
         $filename             = "{$name}.php";
-        $menu_pages_location  = new Local(__DIR__ . '/../../../../../app/config/wp/' . $folder_name);
-        $boilerplate_location = new Local(__DIR__ . '/../templates');
+        $menu_pages_location  = new LocalFilesystemAdapter(__DIR__ . '/../../../../../app/config/wp/' . $folder_name);
+        $boilerplate_location = new LocalFilesystemAdapter(__DIR__ . '/../templates');
         $menu_pages           = new Filesystem($menu_pages_location);
         $boilerplate          = new Filesystem($boilerplate_location);
         $template             = $boilerplate->read($template_name);
 
         // If file already exists
-        if ($menu_pages->has($filename)) {
+        if ($menu_pages->fileExists($filename)) {
             $output->writeln("<error>{$filename} already exists!</error>");
 
             return 0;
@@ -52,5 +52,7 @@ class MakeMenuPage extends Command
         $menu_pages->write("{$name}.php", $content);
 
         $output->writeln('<info>' . $info_text . ' created successfully.</info>');
+
+        return 0;
     }
 }

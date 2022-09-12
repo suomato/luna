@@ -2,7 +2,7 @@
 
 namespace Suomato\Commands;
 
-use League\Flysystem\Adapter\Local;
+use League\Flysystem\Local\LocalFilesystemAdapter;
 use League\Flysystem\Filesystem;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -23,14 +23,14 @@ class MakeShortcode extends Command
     {
         $name                 = $input->getArgument('name');
         $filename             = "{$name}.php";
-        $shortcodes_location  = new Local(__DIR__ . '/../../../../../app/config/wp/shortcodes');
-        $boilerplate_location = new Local(__DIR__ . '/../templates');
+        $shortcodes_location  = new LocalFilesystemAdapter(__DIR__ . '/../../../../../app/config/wp/shortcodes');
+        $boilerplate_location = new LocalFilesystemAdapter(__DIR__ . '/../templates');
         $shortcodes           = new Filesystem($shortcodes_location);
         $boilerplate          = new Filesystem($boilerplate_location);
         $template             = $boilerplate->read('shortcode.php');
 
         // If file already exists
-        if ($shortcodes->has($filename)) {
+        if ($shortcodes->fileExists($filename)) {
             $output->writeln("<error>{$filename} already exists!</error>");
 
             return 0;
@@ -40,5 +40,7 @@ class MakeShortcode extends Command
         $shortcodes->write("{$name}.php", $content);
 
         $output->writeln('<info>Shortcode created successfully.</info>');
+
+        return 0;
     }
 }

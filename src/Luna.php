@@ -10,7 +10,7 @@ use Suomato\Commands\MakeMenuPage;
 
 class Luna
 {
-    public static $version = '1.3.0';
+    public static $version = '1.3.3';
 
     public static function commands()
     {
